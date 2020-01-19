@@ -23,6 +23,7 @@ $.gulp.task('default', $.gulp.series(
         'pug',
         'sprite',
         'fonts',
+        'scripts',
         'image'
 ),
     $.gulp.parallel(

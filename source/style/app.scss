@@ -1,34 +1,832 @@
-*{
-    font-size: 0px;
-    padding: 0px;
-    margin: 0px;
+* {
+  padding: 0px;
+  margin: 0px;
 }
-body{
-    background-color: #000;
-}
+
 body {
-    color: #334455;
+  background-color: white;
 }
-body {
-    color: #000;
+
+.block__4 {
+  display: block;
+  min-height: 600px;
+  box-sizing: border-box;
+  border: 5px black solid;
+  width: 1218px;
+  margin: 20px auto;
+  //
+  //transform: scale(0.4, 0.4) translate(-800px, -430px);
+
 }
-h1{
-    color: beige;
-    font-size: 50px;
-    padding: 10px;
-    font-weight: bold;
-    margin: 10px;
+
+button {
+  box-sizing: border-box;
+  padding: 10px;
+  margin-left: 20px;
+  width: 140px;
+  height: 54px;
+  background-color: #42c124;
+  color: #fff;
+  font-size: 17px;
+  &:first-child {
+    background-color: #5792cf;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.workflow {
+  width: 100%;
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 100px;
+}
+
+.step__head {
+  font-size: 36px;
+  line-height: 50px;
+  font-weight: 700;
+}
+
+.step {
+  display: flex;
+  width: 100%;
+  padding: 50px 15px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 70px;
+  width: 100%;
+  margin: auto;
+  font-weight: 900;
+}
+
+.first-step__truck-1 {
+  fill: #415181;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.first-step__truck-2 {
+  fill: #415181;
+  position: relative;
+  top: -5px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.select {
+  fill: #3c99fb;
+  &:hover {
+    cursor: default;
+  }
+}
+
+.select__second-step {
+  fill: #415181;
+  &:hover {
+    cursor: default;
+  }
+}
+
+.disp-off {
+  display: none;
+}
+
+.arrows {
+  position: relative;
+  &__second-step {
+    position: absolute;
+  }
+}
+
+.line {
+  width: 100px;
+  position: absolute;
+  border: 2px dashed grey;
+  transform: rotate(90deg);
+}
+
+.first_line {
+  right: 110px;
+  top: 112px;
+  width: 100px;
+}
+
+.second-line {
+  left: 107px;
+  top: 135px;
+  width: 54px;
+}
+
+.third-line {
+  left: 219px;
+  top: 123px;
+  width: 30px;
+}
+
+.arrow {
+  width: 100px;
+  height: 4px;
+  background-color: #ff0000;
+  position: absolute;
+  &::before, &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -8px;
+  }
+  &::before {
+    right: -18px;
+    border-top: 10px solid transparent;
+    border-left: 18px solid #ff0000;
+    border-bottom: 10px solid transparent;
+  }
+  &::after {
+    left: -18px;
+    border-top: 10px solid transparent;
+    border-right: 18px solid #ff0000;
+    border-bottom: 10px solid transparent;
+  }
+  &__between-axes {
+    width: 258px;
+  }
+  &__door-axle {
+    width: 60px;
+  }
+  &__van {
+    width: 300px;
+  }
+  &__wagon-cab {
+    width: 8px;
+  }
+}
+
+.arrows__truck1 {
+  .arrow {
+    &__second-axis {
+      height: 50px;
+      width: 4px;
+      z-index: -10;
+      &::before {
+        display: none;
+      }
+      &::after {
+        transform: rotate(270deg);
+        top: 98%;
+        left: -7px;
+      }
+    }
+    &__first-axis {
+      height: 50px;
+      width: 4px;
+      z-index: -10;
+      &::before {
+        display: none;
+      }
+      &::after {
+        transform: rotate(270deg);
+        top: 96%;
+        left: -7px;
+      }
+    }
+  }
+}
+
+.value__wrapp {
+  box-sizing: border-box;
+  position: absolute;
+  width: 100px;
+  padding-right: 5px;
+  padding-top: 6px;
+  height: 33px;
+  text-align: right;
+}
+
+.value__wrapp {
+  &--first-axis {
+    top: 68px;
+  }
+  &--second-axis {
+    top: 68px;
+  }
+  &--van {
+    top: -40px;
+  }
+  &--load-capacity {
+    top: -7px;
+    right: -110px;
+  }
+  &--between-axes {
+    top: 10px;
+  }
+  &--door-axle {
+    top: 10px;
+  }
+  &--wagon-cab {
+    top: -47px;
+  }
+}
+
+.value {
+  left: 0px;
+  top: 0px;
+  z-index: 10;
+  box-sizing: border-box;
+  position: absolute;
+  width: 70px;
+  border-radius: 0;
+  border: #666 solid 2px;
+  color: #000000;
+  text-align: center;
+  font-size: 22px;
+  font-weight: normal;
+  &[readonly] {
+    cursor: default;
+  }
+  &__arrow {
+    position: absolute;
+  }
+  &__first-axis {
+    top: 163px;
+    right: 164px;
+  }
+  &__second-axis {
+    top: 163px;
+    left: 134px;
+  }
+  &__van {
+    top: -36px;
+    right: 101px;
+  }
+  &__between-axes {
+    top: 141px;
+    right: 142px;
+  }
+  &__door-axle {
+    top: 141px;
+    left: 156px;
+  }
+  &__wagon-cab {
+    top: 60px;
+    right: 142px;
+  }
+}
+
+.load-capacity {
+  position: absolute;
+  top: -95px;
+  right: 80px;
+}
+
+.load-capacity__value {
+  position: absolute;
+  box-sizing: border-box;
+  left: 0px;
+  top: 0px;
+}
+
+.units {
+  position: absolute;
+}
+
+.arrows__truck2 {
+  position: relative;
+  & .value__first-axis {
+    right: 269px;
+  }
+  & .value__second-axis {
+    left: -119px;
+  }
+  & .value__third-axis {
+    left: 108px;
+    .value {
+      width: 60px;
+    }
+    .unit {
+      left: 64px;
+    }
+  }
+  & .value__fourth-axis {
+    left: 169px;
+    .value {
+      width: 60px;
+    }
+    .unit {
+      left: 64px;
+    }
+  }
+  & .value__fifth-axis {
+    left: 230px;
+    .value {
+      width: 64px;
+    }
+    .unit {
+      left: 68px;
+    }
+  }
+  & .value-axis {
+    top: 195px;
+  }
+  & .value__wagon-hitch {
+    top: 136px;
+    right: 201px;
+    .value {
+      width: 46px;
+    }
+  }
+  & .value__axle-hitch {
+    top: 136px;
+    right: 138px;
+    .value {
+      width: 46px;
+    }
+  }
+  & .value__first-axes {
+    top: 208px;
+    right: 248px;
+  }
+  & .value__second-axes {
+    top: 208px;
+    right: 98px;
+  }
+  & .value__third-axes {
+    top: 208px;
+    left: 129px;
+    .value {
+      width: 46px;
+    }
+  }
+  & .value__fourth-axes {
+    top: 208px;
+    left: 190px;
+    .value {
+      width: 46px;
+    }
+  }
+  & .value__van {
+    top: -20px;
+    right: 193px;
+  }
+
+  & .arrow__first-axes {
+    width: 112px;
+  }
+  & .arrow__second-axes {
+    width: 189px;
+  }
+  & .arrow__third-axes {
+    width: 23px;
+  }
+  & .arrow__fourth-axes {
+    width: 23px;
+  }
+  & .arrow__van {
+    width: 512px;
+  }
+  & .arrow__wagon-hitch {
+    width: 39.6px;
+    height: 3px;
+    &::before {
+      right: -10px;
+      top: -4px;
+      border-top: 6px solid transparent;
+      border-left: 10px solid #ff0000;
+      border-bottom: 6px solid transparent;
+    }
+    &::after {
+      left: -10px;
+      top: -4px;
+      border-top: 6px solid transparent;
+      border-right: 10px solid #ff0000;
+      border-bottom: 6px solid transparent;
+    }
+  }
+  & .arrow__axle-hitch {
+    width: 11px;
+    height: 3px;
+    &::before {
+      right: -10px;
+      top: -4px;
+      border-top: 6px solid transparent;
+      border-left: 10px solid #ff0000;
+      border-bottom: 6px solid transparent;
+    }
+    &::after {
+      left: -10px;
+      top: -4px;
+      border-top: 6px solid transparent;
+      border-right: 10px solid #ff0000;
+      border-bottom: 6px solid transparent;
+    }
+  }
+  & .arrow-axis {
+    height: 30px;
+    width: 4px;
+    z-index: -10;
+    &::before {
+      display: none;
+    }
+    &::after {
+      transform: rotate(270deg);
+      top: 28px;
+      left: -7px;
+    }
+  }
+  .load-capacity {
+    top: -70px;
+    right: 180px;
+  }
+}
+
+.arrows__truck1, arrows__truck2 {
+  position: relative;
+}
+
+.inner-html {
+  position: absolute;
+  right: 280px;
+  top: -80px;
+  width: 300px;
+  color: red;
+  font-weight: bold;
+}
+
+.unit {
+  position: absolute;
+  left: 74px;
+}
+
+.arrows__truck2 {
+  .value__wrapp {
+    &--first-axis {
+      top: 46px;
+    }
+    &--second-axis {
+      top: 46px;
+    }
+    &--third-axis {
+      top: 46px;
+      width: 70px;
+      .value {
+        font-size: 16px;
+      }
+    }
+    &--fourth-axis {
+      top: 46px;
+      width: 70px;
+      .value {
+        font-size: 16px;
+      }
+    }
+    &--fifth-axis {
+      top: 46px;
+      width: 70px;
+      .value {
+        font-size: 16px;
+      }
+    }
+    &--axis {
+    }
+    &--wagon-hitch {
+      top: -40px;
+      width: 60px;
+      .value {
+        font-size: 16px;
+      }
+      .unit {
+        left: 50px;
+      }
+    }
+    &--axle-hitch {
+      top: -40px;
+      width: 60px;
+      .value {
+        font-size: 16px;
+      }
+      .unit {
+        left: 50px;
+      }
+    }
+    &--first-axes {
+      top: 10px;
+    }
+    &--second-axes {
+      top: 10px;
+    }
+    &--third-axes {
+      top: 10px;
+      width: 60px;
+      .value {
+        font-size: 16px;
+      }
+      .unit {
+        left: 50px;
+      }
+    }
+    &--fourth-axes {
+      top: 10px;
+      width: 60px;
+      .value {
+        font-size: 16px;
+      }
+      .unit {
+        left: 50px;
+      }
+    }
+    &--van {
+      top: -40px;
+    }
+    &--load-capacity {
+      top: -7px;
+      right: -110px;
+    }
+  }
+}
+
+.units {
+  top: -140px;
+  right: 320px;
+  width: 250px;
+  &__list {
+    list-style: none;
+    border: 2px solid gray;
+    width: 60px;
+    &:hover {
+      border: 2px solid #212222;
+    }
+    li {
+      //padding-left: 5px;
+      margin: -2px 3px;
+      border-bottom: 2px solid #666;
+      padding: 3px;
+      user-select: none;
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+.load__stack {
+  position: absolute;
+  width: 120px;
+
+}
+
+.weight__ {
+  &quantity {
+    width: 240px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: absolute;
+    &--input {
+      width: 50px;
+      height: 20px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+      color: #000;
+      margin-left: 10px;
+      position: relative;
+      top: 0px;
+    }
+  }
+  &text {
+    font-size: 24px;
+    font-weight: 500;
+  }
+  &max {
     text-align: center;
+    flex-grow: 1;
+  }
+  &third-step {
+    position: absolute;
+    right: 240px;
+    top: -20px;
+  }
 }
-p{
-    color: mediumslateblue;
-    font-size: 40px;
-    font-weight: bold;
-    margin: 10px;
-    padding: 5px;
+
+.load {
+  &__unit {
+    box-sizing: border-box;
+    border: 1px solid #3179c2;
+    position: absolute;
+    top: 36px;
+    left: 0px;
+    height: 100px;
+    width: 67px;
+    padding: 10px 0px 20px;
+    background-color: #3c99fb;
+    text-align: center;
+    font-weight: 600;
+    color: #ffffff;
+    user-select: none;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__weight {
+    margin-bottom: 15px;
+    text-align: left;
+    padding-left: 3px;
+    font-size: 16px;
+  }
+  &__input {
+    margin: 0;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 500;
+    width: 58px;
+    border: 1px solid #3179c2;
+    &:focus {
+      border: 2px solid blue;
+    }
+  }
+  &__input--disabled {
+    border: none;
+    background-color: #3c99fb;
+    user-select: none;
+  }
+  &__stack {
+    width: 200px;
+    position: absolute;
+    top: 130px;
+    left: 10px;
+    font-weight: 500;
+  }
+  &__max {
+    font-size: 12px;
+    padding-bottom: 5px;
+  }
+  &__width {
+    position: absolute;
+    left: -10px;
+    top: 140px;
+    font-size: 14px;
+    text-align: center;
+    width: 90px;
+    padding-top: 5px;
+  }
+  &__first-line {
+    background-color: black;
+    width: 2px;
+    height: 100px;
+    position: absolute;
+    left: -670px;
+    top: 0px;
+  }
+  &__second-line {
+    width: 0px;
+    border-left: 2px dotted black;
+    height: 140px;
+    position: absolute;
+    //left: -646px;
+    top: -84px;
+    z-index: 10;
+  }
+  &__arrow {
+    background-color: black;
+    height: 2px;
+    width: 23px;
+    position: absolute;
+    //left: -673px;
+    //top: -200px;
+    &::before, &::after {
+      content: "";
+      display: block;
+      position: absolute;
+    }
+    &::before {
+      right: -5px;
+      top: -2px;
+      border-top: 3px solid transparent;
+      border-left: 5px solid black;
+      border-bottom: 3px solid transparent;
+    }
+    &::after {
+      left: -6px;
+      top: -2px;
+      border-top: 3px solid transparent;
+      border-right: 6px solid black;
+      border-bottom: 3px solid transparent;
+    }
+  }
+  &__dist-arrow {
+    position: absolute;
+    z-index: 10;
+    background-color: black;
+    height: 2px;
+    &--left {
+      width: 1px;
+      //left: -675px;
+      top: 45px;
+    }
+    &--right {
+      width: 1px;
+      //left: -332px;
+      top: 211px;
+    }
+    &::before, &::after {
+      content: "";
+      display: block;
+      position: absolute;
+    }
+    &::before {
+      right: -5px;
+      top: -2px;
+      border-top: 3px solid transparent;
+      border-left: 5px solid black;
+      border-bottom: 3px solid transparent;
+    }
+    &::after {
+      left: -6px;
+      top: -2px;
+      border-top: 3px solid transparent;
+      border-right: 6px solid black;
+      border-bottom: 3px solid transparent;
+    }
+  }
+  &__arrow-value {
+    color: #000;
+    font-weight: 600;
+    font-size: 9px;
+    line-height: 11px;
+    text-align: center;
+    margin-top: -10px;
+  }
 }
-img {
-    width: 750px;
-    margin-left: 20%;
-    height: auto;
+
+.inner-html__warning {
+  position: absolute;
+  width: 220px;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 700;
+  color: red;
+  top: 55px;
+  left: 0px;
+}
+
+input {
+  background-color: #fff;
+  color: #000000;
+  &:focus {
+    border-color: blue;
+  }
+}
+
+button {
+  border: none;
+  outline: none;
+  &:focus {
+    border: 2px solid blue;
+  }
+}
+
+.load__gravity--active {
+  position: absolute;
+  top: 56.66px;
+  left: 23px;
+}
+
+.load__unit--active {
+  background-color: #3c99fb;
+  padding: 25px 0px 20px;
+  margin: 0;
+  left: 0px;
+  top: 36px;
+  box-sizing: border-box;
+  border: 1px solid #3179c2;
+  position: absolute;
+  height: 100px;
+  width: 67px;
+  text-align: center;
+  font-weight: 600;
+  color: #ffffff;
+  user-select: none;
+  &:hover {
+    cursor: move;
+  }
+}
+.storage {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  left: -666px;
+  top: 164px;
+  border: 2px dotted green;
+  width: 337px;
+  height: 100px;
 }
